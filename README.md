@@ -1,5 +1,5 @@
 # Graphs-and-their-Uses
-Coding exploration of Oystein Ore's Graph Theory textbook. I am working through the book and implementing theorems. 
+Coding exploration of Oystein Ore's Graph Theory textbook. I am working through the book and implementing theorems.
 
 ![Graphs and Their Uses](https://m.media-amazon.com/images/I/41fVSQ1M8vL.jpg)
 
@@ -7,7 +7,7 @@ Coding exploration of Oystein Ore's Graph Theory textbook. I am working through 
 
 ### Concepts Covered:
 - **Definitions**: Vertices, edges
-- **Types of Graphs**: Directed, undirected, simple, and weighted graphs.
+- **Types of Graphs**: Directed, undirected, simple, null, compliment and weighted graphs.
 
 ## Ruby Practice Plan
 - Representing a Graph
