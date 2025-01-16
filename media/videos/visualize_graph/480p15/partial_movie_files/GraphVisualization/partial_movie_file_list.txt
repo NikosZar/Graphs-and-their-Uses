@@ -1,8 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:/Users/nikos/Documents/GitHub/Graphs-and-their-Uses/media/videos/visualize_graph/480p15/partial_movie_files/GraphVisualization/1185818338_2386881198_1412841409.mp4'
-file 'file:/Users/nikos/Documents/GitHub/Graphs-and-their-Uses/media/videos/visualize_graph/480p15/partial_movie_files/GraphVisualization/624642324_2789341897_1607597402.mp4'
-file 'file:/Users/nikos/Documents/GitHub/Graphs-and-their-Uses/media/videos/visualize_graph/480p15/partial_movie_files/GraphVisualization/624642324_715473664_1172566395.mp4'
-file 'file:/Users/nikos/Documents/GitHub/Graphs-and-their-Uses/media/videos/visualize_graph/480p15/partial_movie_files/GraphVisualization/624642324_745065385_708912369.mp4'
-file 'file:/Users/nikos/Documents/GitHub/Graphs-and-their-Uses/media/videos/visualize_graph/480p15/partial_movie_files/GraphVisualization/624642324_1159391847_3657739250.mp4'
-file 'file:/Users/nikos/Documents/GitHub/Graphs-and-their-Uses/media/videos/visualize_graph/480p15/partial_movie_files/GraphVisualization/624642324_3330251493_130984440.mp4'
-file 'file:/Users/nikos/Documents/GitHub/Graphs-and-their-Uses/media/videos/visualize_graph/480p15/partial_movie_files/GraphVisualization/624642324_1704852926_464419955.mp4'
