@@ -1,7 +1,9 @@
 require 'set'
 require 'json'
+require_relative 'graph/properties'
 
 class Graph
+  include GraphProperties
   attr_reader :vertices, :edges
 
   def initialize
@@ -18,14 +20,14 @@ class Graph
     add_vertex(vertex1)
     add_vertex(vertex2)
     edges[vertex1].add(vertex2)
-    edges[vertex2].add(vertex1)  # For undirected graph
+    edges[vertex2].add(vertex1) # For undirected graph
   end
 
   def neighbors(vertex)
     edges[vertex]
   end
 
-  def to_json
+  def to_json(*_args)
     {
       vertices: vertices.to_a,
       edges: edges.transform_values(&:to_a)

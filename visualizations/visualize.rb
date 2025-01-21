@@ -3,13 +3,8 @@ require 'json'
 
 # Create and populate your graph
 graph = Graph.new
-graph.add_vertex('A')
-graph.add_vertex('B')
-graph.add_vertex('C')
-graph.add_vertex('D')
-graph.add_vertex('E')
-# graph.add_edge('B', 'C')
-# graph.add_edge('C', 'A')
+graph.add_edge('B', 'C')
+graph.add_edge('A', 'C')
 
 # Export graph data
 File.write('graph_data.json', graph.to_json)
