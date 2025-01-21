@@ -3,22 +3,18 @@ require 'json'
 
 # Create and populate your graph
 graph = Graph.new
-graph.add_vertex('A')
-graph.add_vertex('B')
-graph.add_vertex('C')
-graph.add_vertex('D')
-graph.add_vertex('E')
-# graph.add_edge('B', 'C')
-# graph.add_edge('C', 'A')
+# Example: Create a path graph
+graph.add_edge('A', 'B')
+graph.add_edge('B', 'C')
+graph.add_edge('C', 'D')
 
-# Export graph data
-File.write('graph_data.json', graph.to_json)
+# Export graph data to visualizations directory
+File.write(File.join(__dir__, 'graph_data.json'), graph.to_json)
 puts 'JSON file created successfully!'
 
-# Call manim with high quality (1080p) and preview
-# command = 'manim -pqh visualize_graph.py GraphVisualization'
-# no save
-command = 'manim render -p -ql visualize_graph.py GraphVisualization'
+# Call manim with correct path
+script_path = File.join(__dir__, 'visualize_complement.py')
+command = "manim -pql #{script_path} ComplementGraphVisualization"
 puts "Running command: #{command}"
 result = system(command)
 
