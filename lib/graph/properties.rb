@@ -35,9 +35,21 @@ module GraphProperties
 
     # now need to check corresponding edges for vertice pairs
     # get all possible ways to arrange the vertices of the second graph -> permutation doc
-    # grab the vertices from the first graph and pairs them with a permutation. turn it into a hash at the end
-    # for above look into documentation of zip
-    # check to see if this mapping preserves edge relationships
-    # Ex: if A connects to B in graph 1, then X must connect to Y in graph 2
+    all_possible = other.vertices.to_a.permutation(vertices.size)
+
+    # Return true if ANY mapping works
+    all_possible.any? do |perm|
+      paired_vertices = vertices.zip(perm).to_h
+
+      # Check if edge relationships are preserved
+      edges.all? do |vertex, neighbors|
+        # Get mapped vertex and its neighbors in other graph
+        mapped_vertex = paired_vertices[vertex]
+        mapped_neighbors = neighbors.map { |n| paired_vertices[n] }.to_set
+
+        # Check if mapped neighbors match in other graph
+        other.edges[mapped_vertex] == mapped_neighbors
+      end
+    end
   end
 end
