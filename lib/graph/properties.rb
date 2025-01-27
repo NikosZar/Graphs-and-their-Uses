@@ -29,27 +29,33 @@ module GraphProperties
   # this implies they also need to have the same number of edges if they have the same number of vertices
   # graph1 is self and graph2 is the other graph
   def isomorphic?(other)
-    # 1. quick check to see if self has the same number of vertices as other
-    false unless vertices.size == other.vertices.size
-    false unless (edges.values.sum(&:size) / 2) == (other.edges.values.sum(&:size) / 2)
+    return false unless same_basic_properties?(other)
 
-    # now need to check corresponding edges for vertice pairs
-    # get all possible ways to arrange the vertices of the second graph -> permutation doc
-    all_possible = other.vertices.to_a.permutation(vertices.size)
+    check_possible_mappings(other)
+  end
 
-    # Return true if ANY mapping works
-    all_possible.any? do |perm|
-      paired_vertices = vertices.zip(perm).to_h
+  private
 
-      # Check if edge relationships are preserved
-      edges.all? do |vertex, neighbors|
-        # Get mapped vertex and its neighbors in other graph
-        mapped_vertex = paired_vertices[vertex]
-        mapped_neighbors = neighbors.map { |n| paired_vertices[n] }.to_set
+  def same_basic_properties?(other)
+    vertices.size == other.vertices.size &&
+      edge_count == other.edge_count
+  end
 
-        # Check if mapped neighbors match in other graph
-        other.edges[mapped_vertex] == mapped_neighbors
-      end
+  def edge_count
+    edges.values.sum(&:size) / 2
+  end
+
+  def check_possible_mappings(other)
+    other.vertices.to_a.permutation(vertices.size).any? do |perm|
+      valid_mapping?(other, vertices.zip(perm).to_h)
+    end
+  end
+
+  def valid_mapping?(other, paired_vertices)
+    edges.all? do |vertex, neighbors|
+      mapped_vertex = paired_vertices[vertex]
+      mapped_neighbors = neighbors.map { |n| paired_vertices[n] }.to_set
+      other.edges[mapped_vertex] == mapped_neighbors
     end
   end
 end
